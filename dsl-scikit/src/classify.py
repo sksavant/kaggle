@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import copper
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 
@@ -9,6 +10,9 @@ dfn = pd.read_csv("../data/trainLabels.csv",header=None)
 training_data = pd.concat([dft,dfn],axis=1,ignore_index=True)
 train = copper.Dataset(training_data)
 train.role[40] = train.TARGET
+plt.figure()
+train.get_frame().plot()
+plt.show()
 
 
 testing_data = pd.read_csv("../data/test.csv", header=None)
