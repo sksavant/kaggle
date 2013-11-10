@@ -15,9 +15,11 @@ for l in smean.readlines():
     did = int(did)
     seq[did] = (xm,ym,zm)
 
-ans = open("ans.txt","a")
+ans = open("ans_2_0.csv","a")
+ans.write("QuestionId,IsTrue\n")
 qfile = open("../data/questions.csv")
 qfile.readline()
+varf = 2.0
 while True:
     l = qfile.readline()
     if l=="":
@@ -27,7 +29,7 @@ while True:
     qd= int(qd)
     sm=seq[sid]
     dm=dev[qd]
-    if (abs((sm[0]-dm[0])/math.sqrt(dm[3]))<=1.5 and abs((sm[1]-dm[1])/math.sqrt(dm[4]))<=1.5 and abs((sm[2]-dm[2])/math.sqrt(dm[5]))<=1.5):
+    if (abs((sm[0]-dm[0])/math.sqrt(dm[3]))<=varf and abs((sm[1]-dm[1])/math.sqrt(dm[4]))<=varf and abs((sm[2]-dm[2])/math.sqrt(dm[5]))<=varf):
         ans.write(str(qid)+","+"1\n")
     else:
         ans.write(str(qid)+","+"0\n")
