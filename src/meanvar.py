@@ -1,8 +1,9 @@
 #!/usr/bin/python
 
-trainfile = open("../data/train.csv","r")
+#trainfile = open("../data/train.csv","r")
+trainfile = open("../data/test.csv","r")
 trainfile.readline()
-meanfile = open("meanvartrain.txt","a")
+meanfile = open("meanvartest.txt","a")
 devicemeanvar = {}
 #(meanx,meany,meanz, varx, vary, varz,n)
 l =trainfile.readline()
